@@ -1,6 +1,10 @@
 # Social card image prompt
 
-This repo uses the **NexusFactory Codex imagegen path**, not a local renderer, for the premium LinkedIn social card.
+This repo uses the shared **agent-sdk social asset template** plus the **agent-runtime imagegen registry**, not a local renderer, for the premium LinkedIn social card. The provider chain is Codex-first by design:
+
+```text
+codex_imagegen → openai_dalle → local_fallback
+```
 
 Actual provider used for the checked-in image:
 
@@ -21,10 +25,16 @@ assets/preflight-budget-gate-social-card.png
 From the repo root:
 
 ```bash
-export PYTHONPATH=/Users/dambert.munoz/factory/agent-runtime/src:/Users/dambert.munoz/factory/agent-learning/src:$PYTHONPATH
+export PYTHONPATH=/Users/dambert.munoz/factory/agent-sdk/src:/Users/dambert.munoz/factory/agent-runtime/src:/Users/dambert.munoz/factory/agent-learning/src:$PYTHONPATH
 export NEXUSFACTORY_IMAGEGEN_CODEX_MODEL=gpt-5.4
 python3.11 scripts/generate_codex_social_card.py
-cp assets/preflight-budget-gate-social-card-codex.png assets/preflight-budget-gate-social-card.png
+```
+
+The script writes both the provider-specific reproducibility artifact and the canonical card path:
+
+```text
+assets/preflight-budget-gate-social-card-codex.png
+assets/preflight-budget-gate-social-card.png
 ```
 
 ## Prompt used
