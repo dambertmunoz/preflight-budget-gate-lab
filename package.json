@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "render:social-card": "node scripts/render_social_card.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5"
+  }
+}

@@ -46,7 +46,8 @@ Style details:
 This repo also includes a deterministic local renderer inspired by the Wasyra promo pipeline:
 
 ```bash
-python3.11 scripts/render_social_card.py
+npm install
+npm run render:social-card
 ```
 
 Output:

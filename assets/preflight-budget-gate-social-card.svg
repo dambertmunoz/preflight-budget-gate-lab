@@ -1,87 +1,147 @@
-<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+<svg width="1080" height="1080" viewBox="0 0 1080 1080" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <radialGradient id="bg" cx="50%" cy="20%" r="80%">
-      <stop offset="0%" stop-color="#1E1B4B"/>
-      <stop offset="50%" stop-color="#0E0B26"/>
-      <stop offset="100%" stop-color="#050414"/>
-    </radialGradient>
-    <linearGradient id="cyanViolet" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#7DD3FC"/>
-      <stop offset="100%" stop-color="#A78BFA"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.42" stop-color="#172554"/>
+      <stop offset="0.72" stop-color="#3b1d68"/>
+      <stop offset="1" stop-color="#0f172a"/>
     </linearGradient>
+    <radialGradient id="cyanGlow" cx="22%" cy="16%" r="70%">
+      <stop offset="0" stop-color="#68e1fd" stop-opacity="0.48"/>
+      <stop offset="0.56" stop-color="#68e1fd" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#68e1fd" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violetGlow" cx="80%" cy="38%" r="65%">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.48"/>
+      <stop offset="0.56" stop-color="#a78bfa" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="amberGlow" cx="86%" cy="84%" r="56%">
+      <stop offset="0" stop-color="#ffb86c" stop-opacity="0.38"/>
+      <stop offset="0.58" stop-color="#ffb86c" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#ffb86c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#68e1fd"/>
+      <stop offset="0.55" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#ffb86c"/>
+    </linearGradient>
+    <linearGradient id="mintGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8fffcd"/>
+      <stop offset="1" stop-color="#68e1fd"/>
+    </linearGradient>
+    <filter id="blur24" x="-35%" y="-35%" width="170%" height="170%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#000820" flood-opacity="0.35"/>
+    </filter>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
     <style>
-      .title { font: 700 54px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #F8FAFC; letter-spacing: -1.5px; }
-      .subtitle { font: 500 28px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #BAE6FD; }
-      .author { font: 600 25px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #F8FAFC; }
-      .small { font: 500 21px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #CBD5E1; }
-      .nodeText { font: 700 24px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #F8FAFC; }
-      .micro { font: 600 18px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #CBD5E1; }
-      .panel { fill: rgba(15, 23, 42, 0.62); stroke: rgba(125,211,252,0.38); stroke-width: 2; }
-      .node { fill: rgba(15, 23, 42, 0.82); stroke: url(#cyanViolet); stroke-width: 3; }
-      .line { stroke: #7DD3FC; stroke-width: 4; fill: none; opacity: .8; marker-end: url(#arrow); }
-      .deny { stroke: #A78BFA; stroke-width: 4; fill: none; opacity: .9; marker-end: url(#arrowV); }
+      .display { font-family: "Arial", "Helvetica", sans-serif; font-weight: 800; letter-spacing: -2px; }
+      .label { font-family: "Arial", "Helvetica", sans-serif; font-weight: 700; letter-spacing: 0; }
+      .body { font-family: "Arial", "Helvetica", sans-serif; font-weight: 500; letter-spacing: 0; }
+      .mono { font-family: "Menlo", "SFMono-Regular", "Consolas", monospace; font-weight: 700; }
     </style>
-    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#7DD3FC" stroke-width="2"/>
-    </marker>
-    <marker id="arrowV" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
-      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#A78BFA" stroke-width="2"/>
-    </marker>
   </defs>
 
-  <rect width="1200" height="1200" fill="url(#bg)"/>
-  <circle cx="980" cy="145" r="220" fill="#7DD3FC" opacity="0.08"/>
-  <circle cx="160" cy="980" r="260" fill="#A78BFA" opacity="0.08"/>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <rect width="1080" height="1080" fill="url(#cyanGlow)"/>
+  <rect width="1080" height="1080" fill="url(#violetGlow)"/>
+  <rect width="1080" height="1080" fill="url(#amberGlow)"/>
 
-  <text x="80" y="115" class="title">Your agent spends</text>
-  <text x="80" y="178" class="title">before it thinks</text>
-  <text x="82" y="232" class="subtitle">Preflight Budget Gate for agent tools</text>
+  <path d="M 632 98 C 850 132 992 286 1002 506 C 1018 786 816 930 592 856 C 458 812 458 650 486 464 C 514 278 492 146 632 98 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.09)"/>
+  <path d="M 688 166 C 812 184 904 296 898 426 C 888 586 734 632 626 558 C 518 484 548 328 602 240 C 626 202 652 172 688 166 Z" fill="rgba(255,255,255,0.045)"/>
 
-  <rect x="765" y="82" width="355" height="105" rx="26" class="panel"/>
-  <text x="800" y="126" class="author">Dambert Muñoz</text>
-  <text x="800" y="160" class="small">AI Architect</text>
+  <g opacity="0.24">
+    <circle cx="20" cy="20" r="1.6" fill="#ffffff" opacity="0.5"/><circle cx="157" cy="243" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="294" cy="466" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="431" cy="689" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="568" cy="912" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="705" cy="95" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="842" cy="318" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="979" cy="541" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="76" cy="764" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="213" cy="987" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="350" cy="170" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="487" cy="393" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="624" cy="616" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="761" cy="839" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="898" cy="22" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="1035" cy="245" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="132" cy="468" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="269" cy="691" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="406" cy="914" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="543" cy="97" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="680" cy="320" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="817" cy="543" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="954" cy="766" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="51" cy="989" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="188" cy="172" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="325" cy="395" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="462" cy="618" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="599" cy="841" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="736" cy="24" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="873" cy="247" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="1010" cy="470" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="107" cy="693" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="244" cy="916" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="381" cy="99" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="518" cy="322" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="655" cy="545" r="1.6" fill="#ffffff" opacity="0.5"/><circle cx="792" cy="768" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="929" cy="991" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="26" cy="174" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="163" cy="397" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="300" cy="620" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="437" cy="843" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="574" cy="26" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="711" cy="249" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="848" cy="472" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="985" cy="695" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="82" cy="918" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="219" cy="101" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="356" cy="324" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="493" cy="547" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="630" cy="770" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="767" cy="993" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="904" cy="176" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="1041" cy="399" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="138" cy="622" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="275" cy="845" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="412" cy="28" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="549" cy="251" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="686" cy="474" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="823" cy="697" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="960" cy="920" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="57" cy="103" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="194" cy="326" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="331" cy="549" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="468" cy="772" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="605" cy="995" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="742" cy="178" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="879" cy="401" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="1016" cy="624" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="113" cy="847" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="250" cy="30" r="1.6" fill="#ffffff" opacity="0.5"/><circle cx="387" cy="253" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="524" cy="476" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="661" cy="699" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="798" cy="922" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="935" cy="105" r="0.9" fill="#ffffff" opacity="0.5"/><circle cx="32" cy="328" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="169" cy="551" r="1.6" fill="#ffffff" opacity="0.25"/><circle cx="306" cy="774" r="0.9" fill="#ffffff" opacity="0.25"/><circle cx="443" cy="997" r="0.9" fill="#ffffff" opacity="0.25"/>
+  </g>
 
-  <rect x="85" y="315" width="1030" height="580" rx="42" class="panel"/>
+  <g>
+    <rect x="72" y="64" width="222" height="50" rx="25" fill="rgba(5,10,31,0.58)" stroke="rgba(255,255,255,0.18)"/>
+    <circle cx="96" cy="89" r="10" fill="#68e1fd"/>
+    <text x="124" y="97" class="label" font-size="22" fill="#ffffff">Dambert Lab</text>
 
-  <rect x="145" y="420" width="170" height="86" rx="22" class="node"/>
-  <text x="189" y="473" class="nodeText">Intent</text>
+    <text x="72" y="176" class="label" font-size="28" fill="#68e1fd">Agentic AI Architecture</text>
+    <text x="72" y="288" class="display" font-size="74" fill="#ffffff">Your agent</text>
+    <text x="72" y="368" class="display" font-size="74" fill="#ffffff">spends before</text>
+    <text x="72" y="448" class="display" font-size="74" fill="#ffffff">it thinks</text>
 
-  <path class="line" d="M315 463 C365 463, 380 463, 430 463"/>
-  <rect x="430" y="420" width="170" height="86" rx="22" class="node"/>
-  <text x="472" y="473" class="nodeText">Policy</text>
+    <text x="74" y="534" class="label" font-size="27" fill="#ffffff">Preflight admission control</text>
+    <text x="74" y="575" class="body" font-size="27" fill="#dbeafe">before tool side effects.</text>
 
-  <path class="line" d="M600 463 C645 463, 660 463, 705 463"/>
-  <rect x="705" y="420" width="175" height="86" rx="22" class="node"/>
-  <text x="747" y="473" class="nodeText">Reserve</text>
+    <g transform="translate(72 864)">
+      <rect x="0" y="0" width="88" height="42" rx="21" fill="rgba(5,10,31,0.56)" stroke="#68e1fd" stroke-opacity="0.58"/>
+        <text x="44" y="27" text-anchor="middle" class="label" font-size="16" fill="#ffffff">Intent</text><rect x="105" y="0" width="88" height="42" rx="21" fill="rgba(5,10,31,0.56)" stroke="#a78bfa" stroke-opacity="0.58"/>
+        <text x="149" y="27" text-anchor="middle" class="label" font-size="16" fill="#ffffff">Policy</text><rect x="210" y="0" width="88" height="42" rx="21" fill="rgba(5,10,31,0.56)" stroke="#8fffcd" stroke-opacity="0.58"/>
+        <text x="254" y="27" text-anchor="middle" class="label" font-size="16" fill="#ffffff">Reserve</text><rect x="315" y="0" width="88" height="42" rx="21" fill="rgba(5,10,31,0.56)" stroke="#ffb86c" stroke-opacity="0.58"/>
+        <text x="359" y="27" text-anchor="middle" class="label" font-size="16" fill="#ffffff">Audit</text>
+    </g>
 
-  <path class="line" d="M792 506 C792 550, 792 570, 792 612"/>
-  <rect x="683" y="612" width="220" height="98" rx="28" fill="rgba(14,11,38,.9)" stroke="url(#cyanViolet)" stroke-width="4" filter="url(#glow)"/>
-  <text x="736" y="653" class="nodeText">Gate</text>
-  <text x="717" y="684" class="micro">side_effect_allowed?</text>
+    <rect x="72" y="952" width="252" height="58" rx="29" fill="#ffffff"/>
+    <text x="198" y="988" text-anchor="middle" class="label" font-size="23" fill="#0f172a">View repo</text>
+    <text x="804" y="984" text-anchor="middle" class="body" font-size="20" fill="rgba(255,255,255,0.78)">dambertmunoz.com</text>
+    <text x="804" y="1014" text-anchor="middle" class="body" font-size="16" fill="rgba(255,255,255,0.56)">linkedin.com/in/dambert-m-4b772397</text>
+  </g>
 
-  <path class="line" d="M903 662 C945 662, 965 662, 1005 662"/>
-  <rect x="1005" y="619" width="72" height="86" rx="18" fill="rgba(125,211,252,.12)" stroke="#7DD3FC" stroke-width="3"/>
-  <text x="1023" y="672" class="nodeText">✓</text>
-  <text x="967" y="746" class="micro">Execute</text>
+  <g filter="url(#softShadow)">
+    
+    <rect x="614" y="176" width="358" height="210" rx="34" fill="#020617" opacity="0.34" filter="url(#blur24)"/>
+    <rect x="614" y="156" width="358" height="210" rx="34" fill="rgba(5,10,31,0.54)" stroke="rgba(255,255,255,0.16)" stroke-width="1.4"/>
+    <path d="M 648 157 H 938" stroke="rgba(255,255,255,0.34)" stroke-width="1.6"/>
+  
+    <rect x="648" y="190" width="134" height="20" rx="10" fill="#68e1fd" opacity="0.95"/>
+    <rect x="648" y="246" width="22" height="72" rx="11" fill="#a78bfa" opacity="0.72"/>
+    <rect x="690" y="218" width="22" height="100" rx="11" fill="#68e1fd" opacity="0.76"/>
+    <rect x="732" y="258" width="22" height="60" rx="11" fill="#a78bfa" opacity="0.68"/>
+    <rect x="774" y="202" width="22" height="116" rx="11" fill="#8fffcd" opacity="0.7"/>
+    <path d="M 826 300 C 858 260 880 282 910 226" fill="none" stroke="#68e1fd" stroke-width="6" stroke-linecap="round" opacity="0.78"/>
 
-  <path class="deny" d="M792 710 C792 760, 692 792, 595 792"/>
-  <rect x="392" y="746" width="205" height="82" rx="22" fill="rgba(167,139,250,.12)" stroke="#A78BFA" stroke-width="3"/>
-  <text x="428" y="797" class="nodeText">Manual Review</text>
+    
+    <rect x="548" y="462" width="470" height="332" rx="40" fill="#020617" opacity="0.34" filter="url(#blur24)"/>
+    <rect x="548" y="442" width="470" height="332" rx="40" fill="rgba(5,10,31,0.78)" stroke="rgba(255,255,255,0.16)" stroke-width="1.4"/>
+    <path d="M 588 443 H 978" stroke="rgba(255,255,255,0.34)" stroke-width="1.6"/>
+  
+    <text x="592" y="504" class="label" font-size="18" fill="#68e1fd">ADMISSION CONTROL</text>
+    <text x="592" y="556" class="display" font-size="34" fill="#ffffff" letter-spacing="-0.4">No side effect before</text>
+    <text x="592" y="598" class="display" font-size="34" fill="#ffffff" letter-spacing="-0.4">policy + reservation</text>
 
-  <path class="deny" d="M683 662 C605 662, 560 625, 515 584"/>
-  <rect x="410" y="538" width="115" height="70" rx="20" fill="rgba(167,139,250,.12)" stroke="#A78BFA" stroke-width="3"/>
-  <text x="446" y="582" class="nodeText">Deny</text>
+    <g transform="translate(592 650)">
+      <rect x="0" y="0" width="88" height="50" rx="18" fill="rgba(5,10,31,0.72)" stroke="#68e1fd" stroke-opacity="0.85"/>
+      <circle cx="19" cy="25" r="7" fill="#68e1fd"/>
+      <text x="51" y="31" text-anchor="middle" class="label" font-size="14" fill="#ffffff">Intent</text>
+      <path d="M 88 25 H 126" stroke="#a78bfa" stroke-width="4" opacity="0.65"/>
 
-  <rect x="135" y="922" width="930" height="132" rx="30" fill="rgba(15,23,42,.72)" stroke="rgba(248,250,252,.16)" stroke-width="2"/>
-  <text x="170" y="973" class="small">Audit trace</text>
-  <text x="170" y="1018" class="micro">HELD → COMMITTED / RELEASED · stable DecisionCode · no side effect before admission</text>
+      <rect x="126" y="0" width="88" height="50" rx="18" fill="rgba(5,10,31,0.72)" stroke="#a78bfa" stroke-opacity="0.85"/>
+      <circle cx="145" cy="25" r="7" fill="#a78bfa"/>
+      <text x="177" y="31" text-anchor="middle" class="label" font-size="14" fill="#ffffff">Policy</text>
+      <path d="M 214 25 H 252" stroke="#8fffcd" stroke-width="4" opacity="0.65"/>
 
-  <text x="80" y="1128" class="small">dambertmunoz.com · linkedin.com/in/dambert-m-4b772397</text>
+      <rect x="252" y="0" width="92" height="50" rx="18" fill="rgba(5,10,31,0.72)" stroke="#8fffcd" stroke-opacity="0.85"/>
+      <circle cx="271" cy="25" r="7" fill="#8fffcd"/>
+      <text x="306" y="31" text-anchor="middle" class="label" font-size="14" fill="#ffffff">Reserve</text>
+      <path d="M 344 25 H 382" stroke="#68e1fd" stroke-width="4" opacity="0.65"/>
+
+      <rect x="382" y="-10" width="58" height="70" rx="20" fill="rgba(5,10,31,0.82)" stroke="#68e1fd" stroke-opacity="0.96"/>
+      <path d="M 397 24 L 412 39 L 431 15" fill="none" stroke="#68e1fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+
+    <rect x="594" y="724" width="166" height="44" rx="22" fill="#a78bfa" opacity="0.92"/>
+    <text x="677" y="753" text-anchor="middle" class="label" font-size="17" fill="#ffffff">manual_review</text>
+    <rect x="780" y="724" width="158" height="44" rx="22" fill="#ffb86c" opacity="0.94"/>
+    <text x="859" y="753" text-anchor="middle" class="label" font-size="17" fill="#ffffff">no tool call</text>
+
+    
+    <rect x="646" y="828" width="318" height="86" rx="26" fill="#020617" opacity="0.34" filter="url(#blur24)"/>
+    <rect x="646" y="808" width="318" height="86" rx="26" fill="rgba(5,10,31,0.58)" stroke="rgba(255,255,255,0.16)" stroke-width="1.4"/>
+    <path d="M 672 809 H 938" stroke="rgba(255,255,255,0.34)" stroke-width="1.6"/>
+  
+    <text x="680" y="844" class="mono" font-size="19" fill="#dbeafe">audit_event</text>
+    <rect x="840" y="828" width="92" height="30" rx="15" fill="url(#mintGrad)"/>
+    <rect x="680" y="864" width="96" height="14" rx="7" fill="#68e1fd" opacity="0.9"/>
+    <rect x="794" y="864" width="134" height="14" rx="7" fill="#a78bfa" opacity="0.9"/>
+  </g>
 </svg>
