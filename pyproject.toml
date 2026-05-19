@@ -1,0 +1,15 @@
+[project]
+name = "preflight-budget-gate-lab"
+version = "0.1.0"
+description = "Offline agent budget governor demo: typed intent, preflight risk gate, reservation ledger, and deterministic routing before tool side effects."
+requires-python = ">=3.11"
+authors = [{ name = "Dambert Munoz" }]
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+budget-gate-lab = "budget_gate_lab.demo:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

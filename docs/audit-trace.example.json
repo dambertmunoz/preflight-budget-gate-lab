@@ -1,0 +1,9 @@
+{
+  "intent_key": "post-2026-05-18",
+  "route": "manual_review",
+  "decision_code": "public_side_effect_requires_manual_review",
+  "reservation_id": "post-2026-05-18",
+  "reservation_status": "held",
+  "side_effect_allowed": false,
+  "tool_executed": false
+}

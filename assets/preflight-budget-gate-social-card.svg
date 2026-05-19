@@ -1,0 +1,87 @@
+<svg width="1200" height="1200" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#1E1B4B"/>
+      <stop offset="50%" stop-color="#0E0B26"/>
+      <stop offset="100%" stop-color="#050414"/>
+    </radialGradient>
+    <linearGradient id="cyanViolet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7DD3FC"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .title { font: 700 54px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #F8FAFC; letter-spacing: -1.5px; }
+      .subtitle { font: 500 28px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #BAE6FD; }
+      .author { font: 600 25px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #F8FAFC; }
+      .small { font: 500 21px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #CBD5E1; }
+      .nodeText { font: 700 24px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #F8FAFC; }
+      .micro { font: 600 18px -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; fill: #CBD5E1; }
+      .panel { fill: rgba(15, 23, 42, 0.62); stroke: rgba(125,211,252,0.38); stroke-width: 2; }
+      .node { fill: rgba(15, 23, 42, 0.82); stroke: url(#cyanViolet); stroke-width: 3; }
+      .line { stroke: #7DD3FC; stroke-width: 4; fill: none; opacity: .8; marker-end: url(#arrow); }
+      .deny { stroke: #A78BFA; stroke-width: 4; fill: none; opacity: .9; marker-end: url(#arrowV); }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#7DD3FC" stroke-width="2"/>
+    </marker>
+    <marker id="arrowV" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#A78BFA" stroke-width="2"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="1200" fill="url(#bg)"/>
+  <circle cx="980" cy="145" r="220" fill="#7DD3FC" opacity="0.08"/>
+  <circle cx="160" cy="980" r="260" fill="#A78BFA" opacity="0.08"/>
+
+  <text x="80" y="115" class="title">Your agent spends</text>
+  <text x="80" y="178" class="title">before it thinks</text>
+  <text x="82" y="232" class="subtitle">Preflight Budget Gate for agent tools</text>
+
+  <rect x="765" y="82" width="355" height="105" rx="26" class="panel"/>
+  <text x="800" y="126" class="author">Dambert Muñoz</text>
+  <text x="800" y="160" class="small">AI Architect</text>
+
+  <rect x="85" y="315" width="1030" height="580" rx="42" class="panel"/>
+
+  <rect x="145" y="420" width="170" height="86" rx="22" class="node"/>
+  <text x="189" y="473" class="nodeText">Intent</text>
+
+  <path class="line" d="M315 463 C365 463, 380 463, 430 463"/>
+  <rect x="430" y="420" width="170" height="86" rx="22" class="node"/>
+  <text x="472" y="473" class="nodeText">Policy</text>
+
+  <path class="line" d="M600 463 C645 463, 660 463, 705 463"/>
+  <rect x="705" y="420" width="175" height="86" rx="22" class="node"/>
+  <text x="747" y="473" class="nodeText">Reserve</text>
+
+  <path class="line" d="M792 506 C792 550, 792 570, 792 612"/>
+  <rect x="683" y="612" width="220" height="98" rx="28" fill="rgba(14,11,38,.9)" stroke="url(#cyanViolet)" stroke-width="4" filter="url(#glow)"/>
+  <text x="736" y="653" class="nodeText">Gate</text>
+  <text x="717" y="684" class="micro">side_effect_allowed?</text>
+
+  <path class="line" d="M903 662 C945 662, 965 662, 1005 662"/>
+  <rect x="1005" y="619" width="72" height="86" rx="18" fill="rgba(125,211,252,.12)" stroke="#7DD3FC" stroke-width="3"/>
+  <text x="1023" y="672" class="nodeText">✓</text>
+  <text x="967" y="746" class="micro">Execute</text>
+
+  <path class="deny" d="M792 710 C792 760, 692 792, 595 792"/>
+  <rect x="392" y="746" width="205" height="82" rx="22" fill="rgba(167,139,250,.12)" stroke="#A78BFA" stroke-width="3"/>
+  <text x="428" y="797" class="nodeText">Manual Review</text>
+
+  <path class="deny" d="M683 662 C605 662, 560 625, 515 584"/>
+  <rect x="410" y="538" width="115" height="70" rx="20" fill="rgba(167,139,250,.12)" stroke="#A78BFA" stroke-width="3"/>
+  <text x="446" y="582" class="nodeText">Deny</text>
+
+  <rect x="135" y="922" width="930" height="132" rx="30" fill="rgba(15,23,42,.72)" stroke="rgba(248,250,252,.16)" stroke-width="2"/>
+  <text x="170" y="973" class="small">Audit trace</text>
+  <text x="170" y="1018" class="micro">HELD → COMMITTED / RELEASED · stable DecisionCode · no side effect before admission</text>
+
+  <text x="80" y="1128" class="small">dambertmunoz.com · linkedin.com/in/dambert-m-4b772397</text>
+</svg>
