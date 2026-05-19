@@ -1,12 +1,13 @@
 {
   "title": "Preflight Budget Gate",
   "theme": "Preflight admission control for AI agent tool calls, based on the GitHub repo architecture",
-  "prompt_customization": "Create a premium LinkedIn social card grounded in the actual repo. Make it an elegant architecture visual, not a security poster. Show one clean left-to-right flow with only large readable labels: Planner, ActionIntent, BudgetPolicy, ReservationLedger, Executor, AuditEvent. Below the gate show exactly three decision cards with large labels only: EXECUTE, MANUAL REVIEW, DENY. Semantics must be correct: EXECUTE means reserved budget plus side_effect_allowed true; MANUAL REVIEW means reservation held, no tool execution, side_effect_allowed false; DENY means no reservation and no tool execution. Represent the ledger as a refined checkpoint/gate between policy and executor: reserve before side effect, then commit on success or release on failure. Use subtle GitHub/repository cues like abstract file cards or typed-contract panels, but no fake code wall and no tiny pseudo-code. Avoid rendering detailed IDs, token numbers, timestamps, or long text. If text is uncertain, use abstract iconography instead. The visual should feel like a Staff/Architect repo launch: deterministic policy, typed contract, auditable decision boundary, production-grade AI agents.",
+  "prompt_customization": "Create a premium LinkedIn social card grounded in the actual repo. Make it an elegant architecture visual, not a security poster. Show one clean left-to-right flow with only large readable labels: Planner, ActionIntent, BudgetPolicy, ReservationLedger, Executor, AuditEvent. Below the gate show exactly three decision cards with large labels only: EXECUTE, MANUAL REVIEW, DENY. Semantics must be correct: EXECUTE means reserved budget plus side_effect_allowed true; MANUAL REVIEW means reservation held, no tool execution, side_effect_allowed false; DENY means no reservation and no tool execution. Represent the ledger as a refined checkpoint/gate between policy and executor: reserve before side effect, then commit on success or release on failure. Use subtle GitHub/repository cues like abstract file cards or typed-contract panels, but no fake code wall and no tiny pseudo-code. Avoid rendering detailed IDs, token numbers, timestamps, or long text. If text is uncertain, use abstract iconography instead. The visual should feel like a Staff/Architect repo launch: deterministic policy, typed contract, auditable decision boundary, production-grade AI agents. Do not include Wasyra branding, Wasyra symbols, monograms, standalone letters, logo marks, initials, or any decorative M/W glyph. Do not add any brand logo beyond minimal Dambert Muñoz text if needed.",
   "width": 1024,
   "height": 1024,
   "metadata": {
     "repo": "preflight-budget-gate-lab",
     "pipeline": "personal_brand_repo_launch",
-    "source": "pipeline_generated_brief"
+    "source": "pipeline_generated_brief",
+    "brand_exclusions": ["wasyra", "monogram", "standalone_letters", "logo_marks"]
   }
 }
