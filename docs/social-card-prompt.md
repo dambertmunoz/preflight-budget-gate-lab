@@ -2,20 +2,55 @@
 
 Use this with Codex image generation, DALL·E, Midjourney, or another image model for the LinkedIn post.
 
-## Prompt
+## Wasyra-inspired premium prompt
 
-Create a premium square editorial social card for LinkedIn, 1:1 aspect ratio, for Dambert Muñoz, AI Architect. Dark elegant technical style, deep navy background (#0E0B26), clean cyan and violet highlights (#7DD3FC and #A78BFA), white text (#F8FAFC), modern architectural systems diagram aesthetic.
+Create a premium square editorial social card for LinkedIn, 1:1 aspect ratio, inspired by the Wasyra visual system: dark-first gradient background, deep navy to indigo to violet, subtle cyan and warm amber glows, glassmorphism dashboard cards, soft editorial shadows, abstract blobs, dotted micro-grid, and clean high-contrast typography.
 
-Visual concept: an AI agent workflow is stopped at a glowing preflight gate before a dangerous tool call. Show a clean graph with nodes labeled: Intent, Policy, Reserve, Execute, Manual Review, Deny. The Execute path should be visually gated, with a lock/checkpoint before the tool icon. Add a subtle ledger/audit trace panel on the side showing status: HELD, COMMITTED, RELEASED. The composition should feel like a Staff/Architect engineering diagram, not sci-fi hype.
+Brand/person: Dambert Muñoz, AI Architect.
 
-Text on image, minimal and legible:
-
+Core message:
 "Your agent spends before it thinks"
-"Preflight Budget Gate"
-"Dambert Muñoz · AI Architect"
 
-Style: premium technical editorial, crisp vector-like shapes, glassmorphism panels, subtle depth, high contrast, clean typography, no cartoon robots, no generic AI brain, no clutter, no fake code, no misspelled text.
+Secondary line:
+"Preflight admission control before tool side effects."
 
-## Negative prompt
+Small badge:
+"Dambert Lab"
 
-Avoid: humanoid robots, glowing brains, random code snippets, unreadable small text, cyberpunk clutter, fake dashboards, stock-photo people, exaggerated neon, misspelled words, corporate clipart.
+CTA/footer:
+"dambertmunoz.com"
+
+Visual concept: left side has strong editorial headline typography. Right side shows premium floating product/architecture panels: one analytics/preflight card, one code card, and a central orbital gate diagram connecting Intent, Policy, Reserve, and Audit. The system should feel like a serious Staff/Architect engineering artifact, not generic AI hype.
+
+Use short readable labels only:
+- Intent
+- Policy
+- Reserve
+- Audit
+- manual_review
+- no tool call
+
+Style details:
+- 2026 premium SaaS editorial design.
+- Glass panels with translucent navy surfaces and thin white borders.
+- Cyan/violet/amber accent palette.
+- Soft shadows and dimensional composition.
+- Crisp vector-like UI elements.
+- Minimal text, large hierarchy, legible at mobile LinkedIn size.
+- No humanoid robots, no glowing AI brain, no stock-photo people.
+- No fake dense code blocks; if code appears, keep it abstract and secondary.
+- Avoid misspelled text and avoid too many tiny labels.
+
+## Local fallback asset
+
+This repo also includes a deterministic local renderer inspired by the Wasyra promo pipeline:
+
+```bash
+python3.11 scripts/render_social_card.py
+```
+
+Output:
+
+```text
+assets/preflight-budget-gate-social-card.png
+```
